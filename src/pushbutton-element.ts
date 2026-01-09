@@ -180,7 +180,7 @@ export class PushbuttonElement extends LitElement {
   private down() {
     if (!this.pressed) {
       this.pressed = true;
-      this.dispatchEvent(new Event('button-press'));
+      this.dispatchEvent(new CustomEvent('button-press', { bubbles: true, composed: true }));
     }
   }
 
@@ -193,7 +193,7 @@ export class PushbuttonElement extends LitElement {
     } else {
       this.sticky = false;
       this.pressed = false;
-      this.dispatchEvent(new Event('button-release'));
+      this.dispatchEvent(new CustomEvent('button-release', { bubbles: true, composed: true }));
     }
   }
 
